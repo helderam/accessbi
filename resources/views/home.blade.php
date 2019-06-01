@@ -15,6 +15,9 @@
                     @endif
 
                     You are logged in!
+
+                    RELATORIOS DISPONIVEIS PARA GRUPOS
+
                 </div>
             </div>
         </div>
