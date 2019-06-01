@@ -29,14 +29,15 @@ class HomeController extends Controller
         
         if (Auth::check()) {
             // The user is logged in...
-
+            $user = Auth::user();
             $id = Auth::id();
+            //$groups = $user->groups;
             $groups = DB::select("
                 select g.id, g.name, g.description, gr.report_id, 
                        r.name as report_name, r.description as r_description, r.link
                 from groups g
-                join groups_users gu on gu.group_id = g.id
-                join groups_reports gr on gr.group_id = gu.group_id
+                join group_users gu on gu.group_id = g.id
+                join group_reports gr on gr.group_id = gu.group_id
                 join reports r on r.id = gr.report_id
                 where gu.user_id = $id
             ");

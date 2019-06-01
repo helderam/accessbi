@@ -40,7 +40,18 @@ class User extends Authenticatable
     
     public function groups()
     {
-        return $this->belongsToMany(Group::class);
+        return $this->hasMany('App\GroupUser');
+        #return $this->belongsToMany(Group::class,'groups_users');
         #return $this->hasManyThrough(Group::class);
+        /*
+        return $this->hasManyThrough(
+            'App\Post',
+            'App\User',
+            'country_id', // Foreign key on users table...
+            'user_id', // Foreign key on posts table...
+            'id', // Local key on countries table...
+            'id' // Local key on users table...
+        );
+        */
     }
 }
