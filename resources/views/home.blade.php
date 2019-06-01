@@ -17,8 +17,18 @@
                     You are logged in!
 
                     RELATORIOS DISPONIVEIS PARA GRUPOS
-
                 </div>
+
+                <table>
+                <?php foreach ($groups as $group): ?>
+                    <tr>
+                        <td> <?= $group->id ?> </td>
+                        <td> <?= $group->name ?> </td>
+                        <td> <?= $group->report_name ?> </td>
+                        <td> <?= $group->link ?> </td>
+                    </tr>
+                <?php endforeach ?>
+                </table>
             </div>
         </div>
     </div>
